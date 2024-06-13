@@ -30,9 +30,9 @@ def callback(ch, method, properties, body):
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 
-channel.queue_declare(queue='cola_correos')
+#channel.queue_declare(queue='cola_correos')
 
-channel.basic_consume(queue='cola_correos',
+channel.basic_consume(queue='InformativeAlarms',
                       on_message_callback=callback,
                       auto_ack=True)
 
